@@ -1,19 +1,15 @@
 import React from "react";
 import { EChartsOption } from "echarts-for-react";
-
 import { malicAcidAnalyticsValues } from "./typings";
+import { ChartDataType } from "../data/chartData";
 
-import WINE_DATA from "../data/Wine-Data.json";
-
-export const useColorAnalytics = () => {
+export const useColorAnalytics = (data: ChartDataType[]): EChartsOption => {
   const colorIntensity: Array<number> = React.useMemo(() => {
-    return WINE_DATA.map((wineDetails) =>
-      Number(wineDetails["Color intensity"])
-    );
-  }, []);
+    return data.map((wineDetails) => Number(wineDetails["Color intensity"]));
+  }, [data]);
   const hue: Array<number> = React.useMemo(() => {
-    return WINE_DATA.map((wineDetails) => wineDetails.Hue);
-  }, []);
+    return data.map((wineDetails) => wineDetails.Hue);
+  }, [data]);
 
   const colorAnalytics: EChartsOption = React.useMemo(() => {
     return {
@@ -51,7 +47,7 @@ export const useColorAnalytics = () => {
   return { colorAnalytics };
 };
 
-export const useAlcoholAnalytics = () => {
+export const useAlcoholAnalytics = (data: ChartDataType[]): EChartsOption => {
   const malicAcidAnalytics = React.useMemo(
     () => new Map<number, malicAcidAnalyticsValues>(),
     []
@@ -62,7 +58,7 @@ export const useAlcoholAnalytics = () => {
   //count net amount of malic acid in alcohol of particular category
   // count number of beverages in same category
   // insert above data into map
-  WINE_DATA.forEach((wineDetails) => {
+  data.forEach((wineDetails) => {
     if (malicAcidAnalytics.has(wineDetails.Alcohol)) {
       const malicAcidDetail = malicAcidAnalytics.get(
         wineDetails.Alcohol
