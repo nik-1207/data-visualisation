@@ -8,6 +8,7 @@ interface BarProps {
 }
 
 const Bar: React.FC<BarProps> = ({ data }) => {
+  // Echart hook to get echart options
   const { avgMalicAcidAnalytics } = useAlcoholAnalytics(data);
 
   return (

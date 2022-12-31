@@ -13,6 +13,12 @@ export const useColorAnalytics = (data: ChartDataType[]): EChartsOption => {
 
   const colorAnalytics: EChartsOption = React.useMemo(() => {
     return {
+      tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          type: "shadow",
+        },
+      },
       title: {
         text: "Alcohol colour analytics",
         textAlign: "center",
@@ -85,6 +91,12 @@ export const useAlcoholAnalytics = (data: ChartDataType[]): EChartsOption => {
 
   const avgMalicAcidAnalytics: EChartsOption = React.useMemo(
     () => ({
+      tooltip: {
+        trigger: "axis",
+        axisPointer: {
+          type: "shadow",
+        },
+      },
       title: {
         text: "Malic acid analysis",
         textAlign: "center",

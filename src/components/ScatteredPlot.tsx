@@ -7,6 +7,7 @@ interface ScatteredPlotProps {
   data: ChartDataType[];
 }
 const ScatteredPlot: React.FC<ScatteredPlotProps> = ({ data }) => {
+  // Echart hook to get echart options
   const { colorAnalytics } = useColorAnalytics(data);
 
   return (
