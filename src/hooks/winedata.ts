@@ -17,6 +17,11 @@ export const useColorAnalytics = () => {
 
   const colorAnalytics: EChartsOption = React.useMemo(() => {
     return {
+      title: {
+        text: "Alcohol colour analytics",
+        textAlign: "center",
+        left: "50%",
+      },
       xAxis: {
         type: "category",
         name: "Color Intensity",
@@ -84,6 +89,11 @@ export const useAlcoholAnalytics = () => {
 
   const avgMalicAcidAnalytics: EChartsOption = React.useMemo(
     () => ({
+      title: {
+        text: "Malic acid analysis",
+        textAlign: "center",
+        left: "50%",
+      },
       xAxis: {
         type: "category",
         name: "Alcohol",

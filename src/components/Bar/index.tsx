@@ -6,7 +6,11 @@ import { useAlcoholAnalytics } from "../../hooks/winedata";
 const Bar: React.FC = () => {
   const { avgMalicAcidAnalytics } = useAlcoholAnalytics();
 
-  return <ReactEcharts option={avgMalicAcidAnalytics} />;
+  return (
+    <div className="container">
+      <ReactEcharts option={avgMalicAcidAnalytics} />
+    </div>
+  );
 };
 
 export default Bar;
